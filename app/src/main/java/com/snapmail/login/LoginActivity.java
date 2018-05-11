@@ -428,6 +428,9 @@ public class LoginActivity extends AppCompatActivity
 
     private void onAccountSetupSuccessful(final Account account)
     {
+        completeAuthorizationProgressBar.setVisibility(View.GONE);
+        authorizationCompleteImageView.setVisibility(View.VISIBLE);
+
         new CountDownTimer(2000, 2000)
         {
             @Override
@@ -439,9 +442,6 @@ public class LoginActivity extends AppCompatActivity
             @Override
             public void onFinish()
             {
-                completeAuthorizationProgressBar.setVisibility(View.GONE);
-                authorizationCompleteImageView.setVisibility(View.VISIBLE);
-
                 Intent resultIntent = new Intent();
                 resultIntent.putExtra(Constants.LOGIN_NEW_ACCOUNT_ADDED, account);
                 setResult(RESULT_OK, resultIntent);

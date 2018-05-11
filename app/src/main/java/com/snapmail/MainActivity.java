@@ -2,6 +2,7 @@ package com.snapmail;
 
 import android.arch.persistence.room.Room;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -10,11 +11,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.snapmail.database.DataAccessObject;
 import com.snapmail.database.MailDatabase;
+import com.snapmail.login.AuthorizationCompleteCallback;
 import com.snapmail.login.LoginActivity;
+import com.snapmail.util.Account;
 import com.snapmail.util.Constants;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends AppCompatActivity implements AuthorizationCompleteCallback
 {
 
     private DrawerLayout drawerLayout;
@@ -57,8 +61,9 @@ public class MainActivity extends AppCompatActivity
                     }
                 });
 
+        Constants.LOGIN_NEW_ACCOUNT_CALLBACK = this;
+
         Intent loginActivityIntent = new Intent(this, LoginActivity.class);
-        loginActivityIntent.putExtra(Constants.LOGIN_ACTIVITY_STAGE, Constants.LOGIN_ACTIVITY_STAGE_CHOOSE_EMAIL_SERVICE);
         startActivityForResult(loginActivityIntent, Constants.LOGIN_NEW_ACCOUNT_REQUEST_CODE);
     }
 
@@ -66,6 +71,27 @@ public class MainActivity extends AppCompatActivity
     {
         Constants.mailDatabase = Room.databaseBuilder(getApplicationContext(),
                 MailDatabase.class, "Mail").build();
+    }
+
+    @Override
+    public void onAuthorizationComplete(final Account account)
+    {
+        new AsyncTask<Void, Void, Void>()
+        {
+            @Override
+            protected Void doInBackground(Void... voids)
+            {
+                try
+                {
+                    Constants.mailDatabase.dataAccessObject().addAccount(account);
+                }
+                catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        }.execute();
     }
 
     @Override

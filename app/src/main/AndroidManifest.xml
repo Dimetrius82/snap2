@@ -62,9 +62,8 @@
                     android:path="/oauth2redirect"
                     android:scheme="https" />
             </intent-filter>
-
         </activity>
-
+        <activity android:name=".login.CompleteAuthorizationActivity"></activity>
     </application>
 
 </manifest>

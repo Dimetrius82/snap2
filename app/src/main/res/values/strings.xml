@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">Snap Mail</string>
+
+    <!-- Login Activity strings -->
+    <string name="activity_choose_email_service_title">Add an account</string>
+    <string name="activity_complete_authorization_title">Adding account&#8230;</string>
+
+    <string name="email_provider_google_title">Google</string>
+
+
+    <string name="auth_granted">Authorization granted</string>
+    <string name="exchange_complete">Exchange completed successfully</string>
+    <string name="refresh_failed">Token refresh failed</string>
+    <string name="exchange_notification">Exchanging code for token</string>
+    <string name="openid_logo_content_description">OpenID Foundation Logo</string>
+    <string name="refresh_token">Refresh token</string>
+    <string name="access_token_expires_at">Access token expires at: %s</string>
+    <string name="no_access_token_returned">No access token returned</string>
+    <string name="no_refresh_token_returned">No refresh token returned</string>
+    <string name="refresh_token_returned">Refresh token returned</string>
+    <string name="no_id_token_returned">No ID token returned</string>
+    <string name="id_token_returned">ID token returned</string>
+    <string name="view_profile">View user info</string>
+    <string name="unknown_expiry">unknown</string>
+    <string name="authorization_failed">Authorization Failed</string>
 </resources>

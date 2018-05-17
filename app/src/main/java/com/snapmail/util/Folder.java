@@ -7,14 +7,15 @@ import android.support.annotation.NonNull;
 
 import java.io.Serializable;
 
-@Entity
+@Entity(primaryKeys = {"email_address", "folder_name"})
 public class Folder implements Serializable
 {
-    @PrimaryKey
+    @ColumnInfo(name = "email_address")
     @NonNull
     private String emailAddress;
 
     @ColumnInfo(name = "folder_name")
+    @NonNull
     private String folderName;
 
     @NonNull

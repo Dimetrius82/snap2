@@ -11,8 +11,8 @@
     <dimen name="layout_padding_medium">8dp</dimen>
     <dimen name="layout_padding_small">4dp</dimen>
 
-    <dimen name="email_provider_image_width">24dp</dimen>
-    <dimen name="email_provider_image_height">24dp</dimen>
+    <dimen name="email_provider_image_width">28dp</dimen>
+    <dimen name="email_provider_image_height">28dp</dimen>
     <dimen name="email_provider_text_size">16sp</dimen>
 
 </resources>

@@ -4,5 +4,5 @@
     <color name="colorPrimaryDark">#8E24AA</color>
     <color name="colorAccent">#FF9800</color>
 
-    <color name="color_email_service_google">#8BC34A</color>
+    <color name="color_email_provider">#FAFAFA</color>
 </resources>

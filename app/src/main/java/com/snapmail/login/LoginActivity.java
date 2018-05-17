@@ -89,16 +89,19 @@ public class LoginActivity extends AppCompatActivity
                         }
                     };
 
-            LinearLayout emailProviderGoogleLinearLayout = findViewById(R.id.email_provider_google_linear_layout);
-            emailProviderGoogleLinearLayout.setOnClickListener(new View.OnClickListener()
+            if (idp.name.equals(getString(R.string.google_name)))
             {
-                @Override
-                public void onClick(View v)
+                LinearLayout emailProviderGoogleLinearLayout = findViewById(R.id.email_provider_google_linear_layout);
+                emailProviderGoogleLinearLayout.setOnClickListener(new View.OnClickListener()
                 {
-                    Log.d(TAG, "initiating auth for " + idp.name);
-                    idp.retrieveConfig(LoginActivity.this, retrieveCallback);
-                }
-            });
+                    @Override
+                    public void onClick(View v)
+                    {
+                        Log.d(TAG, "initiating auth for " + idp.name);
+                        idp.retrieveConfig(LoginActivity.this, retrieveCallback);
+                    }
+                });
+            }
         }
     }
 
@@ -135,11 +138,11 @@ public class LoginActivity extends AppCompatActivity
     {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
         {
-            return getColor(R.color.color_email_service_google);
+            return getColor(R.color.color_email_provider);
         }
         else
         {
-            return getResources().getColor(R.color.color_email_service_google);
+            return getResources().getColor(R.color.color_email_provider);
         }
     }
 

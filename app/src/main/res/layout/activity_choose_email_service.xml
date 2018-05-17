@@ -31,19 +31,17 @@
             android:id="@+id/email_provider_google_linear_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/green_rounded_background_borderless"
+            android:background="@drawable/white_rounded_background"
             android:clickable="true"
             android:focusable="true"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="@dimen/layout_padding_large"
-            android:paddingEnd="32dp"
-            android:paddingStart="32dp">
+            android:padding="@dimen/layout_padding_large">
 
             <ImageView
                 android:layout_width="@dimen/email_provider_image_width"
                 android:layout_height="@dimen/email_provider_image_height"
-                android:src="@drawable/ic_provider_google" />
+                android:src="@drawable/ic_email_provider_google" />
 
             <TextView
                 android:layout_width="wrap_content"

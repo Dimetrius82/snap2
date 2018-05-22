@@ -3,9 +3,9 @@
 
     <!-- Google auth config -->
     <string name="google_name">Google</string>
-    <string name="google_client_id" translatable="false">861370711221-hd51p0g2tb5r6o4756s5gkta3bgfdf55.apps.googleusercontent.com</string>
+    <string name="google_client_id" translatable="false">764151322678-vrh1vckmnfe53q4uf3qgkplujv0skp7l.apps.googleusercontent.com</string>
     <string name="google_discovery_uri" translatable="false">https://accounts.google.com/.well-known/openid-configuration</string>
-    <string name="google_scope_string" translatable="false">openid profile email</string>
-    <string name="google_auth_redirect_uri" translatable="false">com.googleusercontent.apps.861370711221-hd51p0g2tb5r6o4756s5gkta3bgfdf55:/oauth2redirect</string>
+    <string name="google_scope_string" translatable="false">openid profile email https://mail.google.com/</string>
+    <string name="google_auth_redirect_uri" translatable="false">com.googleusercontent.apps.764151322678-vrh1vckmnfe53q4uf3qgkplujv0skp7l:/oauth2redirect</string>
 
 </resources>

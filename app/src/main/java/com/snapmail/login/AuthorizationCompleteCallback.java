@@ -4,5 +4,5 @@ import com.snapmail.util.Account;
 
 public interface AuthorizationCompleteCallback
 {
-    public void onAuthorizationComplete(Account account);
+    void onAuthorizationComplete(Account account);
 }

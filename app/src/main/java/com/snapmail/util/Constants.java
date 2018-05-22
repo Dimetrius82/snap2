@@ -5,9 +5,8 @@ import com.snapmail.login.AuthorizationCompleteCallback;
 
 public class Constants
 {
-    public static final int LOGIN_NEW_ACCOUNT_REQUEST_CODE = 1;
     public static AuthorizationCompleteCallback LOGIN_NEW_ACCOUNT_CALLBACK = null;
-    public static final String LOGIN_NEW_ACCOUNT_ADDED = "LOGIN_NEW_ACCOUNT_ADDED";
+    public static final String SAVE_EMAIL_ADDRESS_KEY = "EMAIL_ADDRESS";
 
     public static MailDatabase mailDatabase;
 }

@@ -1,11 +1,9 @@
 package com.snapmail.login;
 
-import android.annotation.TargetApi;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Looper;
@@ -17,7 +15,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.snapmail.R;
 import com.snapmail.util.Account;
@@ -46,8 +43,6 @@ import java.util.HashMap;
 
 public class CompleteAuthorizationActivity extends AppCompatActivity
 {
-    private static final String TAG = "CompleteAuthActivity";
-
     private static final String EXTRA_AUTH_SERVICE_DISCOVERY = "authServiceDiscovery";
     private static final String EXTRA_CLIENT_SECRET = "clientSecret";
 
@@ -82,13 +77,11 @@ public class CompleteAuthorizationActivity extends AppCompatActivity
 
             if (response != null)
             {
-                Log.d(TAG, "Received AuthorizationResponse.");
                 exchangeAuthorizationCode(response);
             }
             else
             {
-                Log.i(TAG, "Authorization failed: " + ex);
-                Toast.makeText(this, R.string.authorization_failed, Toast.LENGTH_SHORT).show();
+                // TODO Handle error
             }
         }
     }
@@ -203,7 +196,8 @@ public class CompleteAuthorizationActivity extends AppCompatActivity
     {
         if (authState.getAuthorizationServiceConfiguration() == null)
         {
-            Log.e(TAG, "Cannot make userInfo request without service configuration");
+            // TODO Handle error due to unavailable service configuration
+            return;
         }
 
         authState.performActionWithFreshTokens(authorizationService, new AuthState.AuthStateAction()
@@ -213,7 +207,7 @@ public class CompleteAuthorizationActivity extends AppCompatActivity
             {
                 if (ex != null)
                 {
-                    Log.e(TAG, "Token refresh failed when fetching user info");
+                    // TODO An exception occurred, handle error
                     return;
                 }
 
@@ -230,7 +224,7 @@ public class CompleteAuthorizationActivity extends AppCompatActivity
                 }
                 catch (MalformedURLException urlEx)
                 {
-                    Log.e(TAG, "Failed to construct user info endpoint URL", urlEx);
+                    // TODO Handle error due to malformed URL
                     return;
                 }
 
@@ -246,11 +240,11 @@ public class CompleteAuthorizationActivity extends AppCompatActivity
                 }
                 catch (IOException ioEx)
                 {
-                    Log.e(TAG, "Network error when querying userinfo endpoint", ioEx);
+                    // TODO Handle network error
                 }
                 catch (JSONException jsonEx)
                 {
-                    Log.e(TAG, "Failed to parse userinfo response");
+                    // TODO Handle JSON parse error
                 }
                 finally
                 {
@@ -262,7 +256,7 @@ public class CompleteAuthorizationActivity extends AppCompatActivity
                         }
                         catch (IOException ioEx)
                         {
-                            Log.e(TAG, "Failed to close userinfo response stream", ioEx);
+                            // TODO Handle network exception while closing response stream
                         }
                     }
                 }
@@ -324,12 +318,12 @@ public class CompleteAuthorizationActivity extends AppCompatActivity
             }
             catch (JSONException ex)
             {
-                Log.e(TAG, "Failed to read userinfo JSON", ex);
+                // TODO Handle JSON parse error
             }
         }
         else
         {
-            //TODO Error occurred
+            //TODO Handle error
         }
     }
 

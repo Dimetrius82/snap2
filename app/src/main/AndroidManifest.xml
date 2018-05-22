@@ -13,7 +13,9 @@
         android:theme="@style/AppTheme">
 
         <!-- Main Activity -->
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,7 +43,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data android:scheme="net.openid.appauth.demo" />
-                <data android:scheme="com.googleusercontent.apps.861370711221-hd51p0g2tb5r6o4756s5gkta3bgfdf55" />
+                <data android:scheme="com.googleusercontent.apps.764151322678-vrh1vckmnfe53q4uf3qgkplujv0skp7l" />
             </intent-filter>
 
             <!--
@@ -63,7 +65,15 @@
                     android:scheme="https" />
             </intent-filter>
         </activity>
-        <activity android:name=".login.CompleteAuthorizationActivity"></activity>
+
+        <!-- Complete Authorization Activity -->
+        <activity android:name=".login.CompleteAuthorizationActivity" />
+
+        <!-- Settings Actvity -->
+        <activity
+            android:name=".settings.SettingsActivity"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/DefaultTheme" />
     </application>
 
 </manifest>

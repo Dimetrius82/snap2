@@ -23,4 +23,15 @@
     <string name="view_profile">View user info</string>
     <string name="unknown_expiry">unknown</string>
     <string name="authorization_failed">Authorization Failed</string>
+
+    <!-- Main Activity strings -->
+    <string name="folders_group_title">Folders</string>
+
+    <string name="action_refresh_title">Refresh</string>
+    <string name="action_settings_title">Settings</string>
+
+
+    <!-- Settings Activity strings -->
+    <string name="action_add_account_title">Add account</string>
+
 </resources>

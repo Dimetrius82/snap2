@@ -23,57 +23,12 @@
             </intent-filter>
         </activity>
 
-        <!-- Login Activity -->
-        <activity
-            android:name=".login.LoginActivity"
-            android:parentActivityName=".MainActivity" />
-
-        <!-- Callback from authentication screen -->
-        <activity android:name="net.openid.appauth.RedirectUriReceiverActivity">
-
-            <!--
-                filter which captures custom scheme based redirects, which are used by the intermediary page when
-                the browser used for authentication cannot directly invoke this app. The source for the redirect
-                page can be found in web/oauth2redirect.html
-            -->
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:scheme="net.openid.appauth.demo" />
-                <data android:scheme="com.googleusercontent.apps.764151322678-vrh1vckmnfe53q4uf3qgkplujv0skp7l" />
-            </intent-filter>
-
-            <!--
-                for up-to-date Chrome browsers we can intercept the OAuth2 callback directly, if a secure assertion
-                is found on the site matching this app:
-                https://appauth.demo-app.io/.well-known/assetlinks.json
-                The source for this file can also be found in
-                web/.well-known/assetlinks.json
-            -->
-            <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data
-                    android:host="appauth.demo-app.io"
-                    android:path="/oauth2redirect"
-                    android:scheme="https" />
-            </intent-filter>
-        </activity>
-
-        <!-- Complete Authorization Activity -->
-        <activity android:name=".login.CompleteAuthorizationActivity" />
-
         <!-- Settings Actvity -->
         <activity
             android:name=".settings.SettingsActivity"
             android:parentActivityName=".MainActivity"
             android:theme="@style/DefaultTheme" />
+
     </application>
 
 </manifest>

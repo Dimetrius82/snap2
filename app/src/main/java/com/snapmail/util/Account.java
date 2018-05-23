@@ -17,11 +17,8 @@ public class Account implements Serializable
     @ColumnInfo(name = "name")
     private String name;
 
-    @ColumnInfo(name = "auth_token")
-    private String authToken;
-
-    @ColumnInfo(name = "refresh_token")
-    private String refreshToken;
+    @ColumnInfo(name = "password")
+    private String password;
 
     @NonNull
     public String getEmailAddress()
@@ -29,7 +26,7 @@ public class Account implements Serializable
         return emailAddress;
     }
 
-    public void setEmailAddress(String emailAddress)
+    public void setEmailAddress(@NonNull String emailAddress)
     {
         this.emailAddress = emailAddress;
     }
@@ -44,23 +41,13 @@ public class Account implements Serializable
         this.name = name;
     }
 
-    public String getAuthToken()
+    public String getPassword()
     {
-        return authToken;
+        return password;
     }
 
-    public void setAuthToken(String authToken)
+    public void setPassword(String password)
     {
-        this.authToken = authToken;
-    }
-
-    public String getRefreshToken()
-    {
-        return refreshToken;
-    }
-
-    public void setRefreshToken(String refreshToken)
-    {
-        this.refreshToken = refreshToken;
+        this.password = password;
     }
 }

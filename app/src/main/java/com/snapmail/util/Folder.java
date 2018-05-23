@@ -2,7 +2,6 @@ package com.snapmail.util;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
 import java.io.Serializable;
@@ -24,17 +23,18 @@ public class Folder implements Serializable
         return emailAddress;
     }
 
-    public void setEmailAddress(String emailAddress)
+    public void setEmailAddress(@NonNull String emailAddress)
     {
         this.emailAddress = emailAddress;
     }
 
+    @NonNull
     public String getFolderName()
     {
         return folderName;
     }
 
-    public void setFolderName(String folderName)
+    public void setFolderName(@NonNull String folderName)
     {
         this.folderName = folderName;
     }

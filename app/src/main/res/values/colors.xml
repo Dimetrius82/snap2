@@ -4,7 +4,5 @@
     <color name="colorPrimaryDark">#8E24AA</color>
     <color name="colorAccent">#FF9800</color>
 
-    <color name="color_email_provider">#FAFAFA</color>
-
     <color name="color_divider">#9E9E9E</color>
 </resources>

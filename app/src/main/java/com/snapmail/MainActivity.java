@@ -1,12 +1,10 @@
 package com.snapmail;
 
-import android.app.Dialog;
 import android.arch.persistence.room.Room;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,23 +16,19 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.snapmail.database.AccountDBCallback;
 import com.snapmail.database.AccountDBHelper;
+import com.snapmail.database.DataAccessObject;
 import com.snapmail.database.MailDatabase;
-import com.snapmail.login.AuthorizationCompleteCallback;
-import com.snapmail.login.LoginActivity;
 import com.snapmail.settings.SettingsActivity;
 import com.snapmail.util.Account;
 import com.snapmail.util.Constants;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements AuthorizationCompleteCallback, AccountDBCallback
+public class MainActivity extends AppCompatActivity implements AccountDBCallback
 {
 
     private DrawerLayout drawerLayout;
@@ -69,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements AuthorizationComp
         drawerLayout = findViewById(R.id.drawer_layout);
 
         navigationView = findViewById(R.id.navigation_view);
+        navigationView.setCheckedItem(R.id.folder_inbox);
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener()
                 {
@@ -86,8 +81,6 @@ public class MainActivity extends AppCompatActivity implements AuthorizationComp
                         return true;
                     }
                 });
-
-        Constants.LOGIN_NEW_ACCOUNT_CALLBACK = this;
 
         AccountDBHelper.getAccountsFromDatabase(this);
     }
@@ -123,12 +116,6 @@ public class MainActivity extends AppCompatActivity implements AuthorizationComp
     }
 
     @Override
-    public void onAuthorizationComplete(final Account account)
-    {
-        AccountDBHelper.addAccountToDatabase(account, this);
-    }
-
-    @Override
     public void onAccountsAddedToDatabase()
     {
         AccountDBHelper.getAccountsFromDatabase(this);
@@ -139,8 +126,7 @@ public class MainActivity extends AppCompatActivity implements AuthorizationComp
     {
         if (accounts.size() == 0)
         {
-            Intent loginActivityIntent = new Intent(this, LoginActivity.class);
-            startActivity(loginActivityIntent);
+            // TODO Launch a login activity
         }
         else
         {
@@ -164,7 +150,6 @@ public class MainActivity extends AppCompatActivity implements AuthorizationComp
             }
 
             updateAccountInfo();
-
             handleAccountSwitch(accounts);
         }
     }

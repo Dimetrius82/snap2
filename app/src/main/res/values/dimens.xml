@@ -16,10 +16,6 @@
     <dimen name="text_size_medium">14sp</dimen>
     <dimen name="text_size_small">12sp</dimen>
 
-    <dimen name="email_provider_image_width">28dp</dimen>
-    <dimen name="email_provider_image_height">28dp</dimen>
-    <dimen name="email_provider_text_size">16sp</dimen>
-
     <dimen name="account_image_width">48dp</dimen>
     <dimen name="account_image_height">48dp</dimen>
 

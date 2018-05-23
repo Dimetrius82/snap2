@@ -25,7 +25,15 @@
     <string name="authorization_failed">Authorization Failed</string>
 
     <!-- Main Activity strings -->
+
+    <!-- Folder strings -->
     <string name="folders_group_title">Folders</string>
+    <string name="folder_inbox_title">Inbox</string>
+    <string name="folder_sent_title">Sent</string>
+    <string name="folder_drafts_title">Drafts</string>
+    <string name="folder_spam_title">Spam</string>
+    <string name="folder_starred_title">Starred</string>
+    <string name="folder_trash_title">Trash</string>
 
     <string name="action_refresh_title">Refresh</string>
     <string name="action_settings_title">Settings</string>

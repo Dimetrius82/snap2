@@ -4,7 +4,45 @@
         <menu>
             <group
                 android:id="@+id/folders_menu_group"
-                android:checkableBehavior="single" />
+                android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/folder_inbox"
+                    android:icon="@drawable/ic_folder_inbox"
+                    android:orderInCategory="1"
+                    android:title="@string/folder_inbox_title" />
+
+                <item
+                    android:id="@+id/folder_sent"
+                    android:icon="@drawable/ic_folder_sent"
+                    android:orderInCategory="2"
+                    android:title="@string/folder_sent_title" />
+
+                <item
+                    android:id="@+id/folder_drafts"
+                    android:icon="@drawable/ic_folder_drafts"
+                    android:orderInCategory="3"
+                    android:title="@string/folder_drafts_title" />
+
+                <item
+                    android:id="@+id/folder_spam"
+                    android:icon="@drawable/ic_folder_spam"
+                    android:orderInCategory="4"
+                    android:title="@string/folder_spam_title" />
+
+                <item
+                    android:id="@+id/folder_starred"
+                    android:icon="@drawable/ic_folder_starred"
+                    android:orderInCategory="5"
+                    android:title="@string/folder_starred_title" />
+
+                <item
+                    android:id="@+id/folder_trash"
+                    android:icon="@drawable/ic_folder_trash"
+                    android:orderInCategory="6"
+                    android:title="@string/folder_trash_title" />
+
+            </group>
         </menu>
     </item>
 </menu>
